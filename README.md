@@ -1,0 +1,75 @@
+# 🖥️ RTL-to-GDSII Implementation of a RISC-V Core (PicoRV32) on Sky130 PDK
+## 📌 Project Overview
+
+This project demonstrates the end-to-end VLSI design flow of a RISC-V core (PicoRV32) using Cadence EDA tools and the Skywater 130nm (Sky130) open-source PDK.
+
+The design begins with Register Transfer Level (RTL) Verilog and proceeds through logic synthesis, floorplanning, placement, clock tree synthesis (CTS), routing, timing sign-off, power analysis, and physical verification, concluding with a manufacturable GDSII layout.
+
+The goal is to understand backend integration, PPA (Power, Performance, Area) trade-offs, and sign-off closure in a real ASIC flow.
+
+# Why This Project is Important
+
+Hands-on with industry-standard flow → This project replicates exactly how real-world ASICs are designed in semiconductor companies.
+
+Open-source RISC-V core → PicoRV32 is compact, well-documented, and ideal for academic/learning purposes.
+
+Open PDK (Sky130) → The world’s first fully open-source 130nm CMOS PDK, enabling fabrication and research without proprietary restrictions.
+
+Cadence Toolchain → Industry-standard EDA suite (Genus, Innovus, Tempus, Voltus, Pegasus) ensures realistic design experience.
+
+Tapeout-ready methodology → Includes PPA (Power, Performance, Area) optimization and IR/EM sign-off, preparing the design for real silicon fabrication.
+
+
+# High-Level Flow (Step-by-Step)
+
+RTL Selection → Use PicoRV32 Verilog source as the CPU core.
+
+Logic Synthesis (Genus) → Convert RTL into a gate-level netlist mapped to Sky130 standard cells.
+
+Formal Verification (LEC with Conformal) → Compare RTL vs. synthesized netlist to ensure functional equivalence (no mismatches introduced by synthesis).
+
+Floorplanning (Innovus) → Define die/core area, I/O placement, and power distribution network.
+
+Placement → Place standard cells while optimizing congestion and timing.
+
+Clock Tree Synthesis (CTS) → Insert clock buffers/inverters, balance skew and insertion delay.
+
+Routing (Innovus) → Global + detailed routing of signals and power networks.
+
+Power Analysis (Voltus) → Perform IR-drop and Electromigration checks for reliability.
+
+Timing Closure (Tempus) → Run Static Timing Analysis across multiple process/voltage/temperature (PVT) corners.
+
+Physical Verification (Pegasus / Assura / PVS) → Ensure design is DRC/LVS/ERC clean.
+
+GDSII Export → Generate the final layout (.gds file) ready for tapeout.
+
+# 🔹 What is PicoRV32?
+
+PicoRV32 is a small, simple, and compact RISC-V CPU core written in Verilog RTL.It is an open-source RTL design available on GitHub.It implements the RV32IMC instruction set (32-bit integer + multiplication + compressed instructions).
+It is highly configurable:
+
+We can choose pipeline stages (1–4 stages).We can enable/disable multiplier, barrel shifter, compressed instructions, etc.Very lightweight — can run on FPGAs and ASICs.
+
+# 🔹 Why PicoRV32 for my project?
+
+Since I am targeting RTL-to-GDS flow on SKY130 with Cadence Innovus, PicoRV32 is perfect because:
+
+It’s synthesizable RTL Verilog (works with Cadence Genus for synthesis).
+
+It’s small enough to complete within university compute resources.
+
+It has been used in several academic tapeouts (OpenLane, Sky130, TinyTapeout).
+
+Gives me a real CPU core to test the full ASIC flow (synthesis → P&R → signoff).
+
+# ⚙️ Detailed Design Flow
+1. RTL Design & Simulation
+
+RTL source: picorv32.v (PicoRV32 RISC-V processor core).
+
+Verified using a testbench in Cadence nclaunch (or any Verilog simulator).
+
+Optional firmware loading (firmware.hex) can be used to test ISA functionality, but is not required for backend flow.
+
+Outcome: Functionally correct RTL.
