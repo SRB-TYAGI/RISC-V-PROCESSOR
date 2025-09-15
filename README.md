@@ -134,6 +134,78 @@ Power rings and straps.
 
 Outcome: DEF with floorplan and power grid.
 
+# 5. Placement
+
+Placed all standard cells inside core area.
+
+Optimized to reduce congestion and improve timing.
+
+Command:
+
+place_opt_design
 
 
+Outcome: Placed DEF + netlist.
 
+# 6. Clock Tree Synthesis (CTS)
+
+Inserted buffers/inverters for clock distribution.
+
+Balanced skew and insertion delay.
+
+Commands:
+
+create_clock_tree_spec -file cts.spec
+clockDesign -specFile cts.spec
+
+
+Outcome: Post-CTS netlist with balanced clock tree.
+
+# 7. Routing
+
+Global routing + detailed routing.
+
+Fixed any design rule violations.
+
+Command:
+
+routeDesign
+
+
+Outcome: Fully routed design + parasitics (SPEF).
+
+# 8. Static Timing Analysis (Cadence Tempus)
+
+Checked setup/hold timing across multiple corners.
+
+
+Outcome: Timing closed design (WNS ≥ 0, TNS = 0).
+
+# 9. Power Integrity (Cadence Voltus)
+
+Performed IR-drop and Electromigration (EM) analysis.
+
+Verified power distribution network is reliable under load.
+
+Outcome: IR/EM clean design.
+
+# 10. Physical Verification (Cadence Pegasus / PVS)
+
+Ran sign-off verification with Sky130 rule decks:
+
+DRC (Design Rule Check)
+
+LVS (Layout vs. Schematic)
+
+ERC (Electrical Rule Check)
+
+Outcome: Design is DRC/LVS/ERC clean.
+
+# 11. GDSII Generation
+
+Exported final layout for tapeout:
+
+streamOut results/picorv32.gds -mapFile sky130.map
+
+
+Outcome: Final GDSII file (picorv32.gds).
