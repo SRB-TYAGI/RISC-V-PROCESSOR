@@ -141,9 +141,7 @@ Placed all standard cells inside core area.
 Optimized to reduce congestion and improve timing.
 
 Command:
-
 place_opt_design
-
 
 Outcome: Placed DEF + netlist.
 
@@ -152,12 +150,6 @@ Outcome: Placed DEF + netlist.
 Inserted buffers/inverters for clock distribution.
 
 Balanced skew and insertion delay.
-
-Commands:
-
-create_clock_tree_spec -file cts.spec
-clockDesign -specFile cts.spec
-
 
 Outcome: Post-CTS netlist with balanced clock tree.
 
@@ -168,16 +160,13 @@ Global routing + detailed routing.
 Fixed any design rule violations.
 
 Command:
-
 routeDesign
-
 
 Outcome: Fully routed design + parasitics (SPEF).
 
 # 8. Static Timing Analysis (Cadence Tempus)
 
 Checked setup/hold timing across multiple corners.
-
 
 Outcome: Timing closed design (WNS ≥ 0, TNS = 0).
 
@@ -206,6 +195,5 @@ Outcome: Design is DRC/LVS/ERC clean.
 Exported final layout for tapeout:
 
 streamOut results/picorv32.gds -mapFile sky130.map
-
 
 Outcome: Final GDSII file (picorv32.gds).
