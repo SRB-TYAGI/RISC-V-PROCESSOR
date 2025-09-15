@@ -70,6 +70,70 @@ RTL source: picorv32.v (PicoRV32 RISC-V processor core).
 
 Verified using a testbench in Cadence nclaunch (or any Verilog simulator).
 
-Optional firmware loading (firmware.hex) can be used to test ISA functionality, but is not required for backend flow.
-
 Outcome: Functionally correct RTL.
+
+# 2. Logic Synthesis (Cadence Genus)
+
+Inputs:
+
+RTL (picorv32.v)
+
+Standard cell library (sky130_fd_sc_hd__tt_025C_1v80.lib)
+
+Constraints (picorv32.sdc)
+
+Process:
+
+RTL is elaborated and optimized.
+
+Mapped onto Sky130 standard cells.
+
+Generated timing/area/power reports
+
+# 3. Logic Equivalence Check (Cadence Conformal LEC)
+
+Purpose: Verify that the synthesized netlist is functionally equivalent to the RTL.
+
+Inputs:
+
+RTL (picorv32.v)
+
+Synthesized netlist (picorv32_syn.v)
+
+Standard cell models (sky130_fd_sc_hd.v)
+
+Process:
+
+Load RTL (golden) and gate netlist (revised).
+
+Run equivalence check.
+
+Example commands:
+
+read design rtl/picorv32.v -golden
+read design results/picorv32_syn.v -revised
+set system mode lec
+add compare point -all
+compare
+report verification -status
+
+
+Outcome: RTL and netlist proven equivalent (no functional changes introduced by synthesis).
+
+# 4. Floorplanning (Cadence Innovus)
+
+Imported synthesized netlist + constraints.
+
+Defined:
+
+Core area and die size.
+
+Pin placement.
+
+Power rings and straps.
+
+Outcome: DEF with floorplan and power grid.
+
+
+
+
