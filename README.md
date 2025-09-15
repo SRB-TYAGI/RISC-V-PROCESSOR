@@ -5,27 +5,6 @@ This project demonstrates the **entire digital ASIC design flow**: synthesis, fo
 
 ---
 
-## 📑 Table of Contents  
-- [📌 Project Overview](#-project-overview)  
-- [🚀 Why This Project is Important](#-why-this-project-is-important)  
-- [🧩 What is PicoRV32?](#-what-is-picorv32)  
-- [📐 High-Level Flow (RTL-to-GDSII)](#-high-level-flow-rtl-to-gdsii)  
-- [⚙️ Detailed Flow with Reports](#️-detailed-flow-with-reports)  
-  - [1️⃣ RTL Design & Simulation](#1️⃣-rtl-design--simulation)  
-  - [2️⃣ Logic Synthesis (Genus)](#2️⃣-logic-synthesis-cadence-genus)  
-  - [3️⃣ Logic Equivalence Check (Conformal LEC)](#3️⃣-logic-equivalence-check-cadence-conformal-lec)  
-  - [4️⃣–11️⃣ Physical Design Flow](#4️⃣11️⃣-physical-design-flow-innovus--tempus--voltus--pegasus)  
-- [📊 Key Reports](#-key-reports)  
-  - [Timing Report](#timing-report)  
-  - [Area Report](#area-report)  
-  - [Power Report](#power-report)  
-  - [QoR Report](#qor-report)  
-- [📌 Summary Table](#-summary-table)  
-- [🔗 Full Reports](#-full-reports-click-to-view)  
-- [📚 References](#-references)  
-
----
-
 ## 📌 Project Overview  
 This repository documents the **ASIC design of a PicoRV32 RISC-V processor core** implemented using **Sky130 technology** and Cadence EDA tools.  
 
