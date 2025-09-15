@@ -168,9 +168,9 @@ Final GDSII → `picorv32.gds`
 
 📂 **Full Reports:**  
 - [timing.rpt](https://github.com/SRB-TYAGI/RISC-V-PROCESSOR/blob/main/1.Genus/2.Reports/timing.rpt)  
-- [area.rpt](reports/area.rpt)  
-- [power.rpt](reports/power.rpt)  
-- [report_qor.rpt](reports/report_qor.rpt)  
+- [area.rpt](https://github.com/SRB-TYAGI/RISC-V-PROCESSOR/blob/main/1.Genus/2.Reports/area.rpt)  
+- [power.rpt](https://github.com/SRB-TYAGI/RISC-V-PROCESSOR/blob/main/1.Genus/2.Reports/power.rpt)  
+- [report_qor.rpt](https://github.com/SRB-TYAGI/RISC-V-PROCESSOR/blob/main/1.Genus/2.Reports/report_qor.rpt)  
 
 ---
 
