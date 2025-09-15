@@ -197,3 +197,82 @@ Exported final layout for tapeout:
 streamOut results/picorv32.gds -mapFile sky130.map
 
 Outcome: Final GDSII file (picorv32.gds).
+
+
+# 1️⃣ Timing Report
+
+Source: reports/timing.rpt
+
+
+| Metric                     | Value           |
+| -------------------------- | --------------- |
+| Target Clock Period        | 10 ns (100 MHz) |
+| Worst Negative Slack (WNS) | **0.00 ns**     |
+| Total Negative Slack (TNS) | **0.00 ns**     |
+| Violating Paths            | 0               |
+
+✅ Timing is clean – no setup/hold violations.
+
+# 2️⃣ Area Report
+
+Source: reports/area.rpt
+
+| Metric               | Value                  |
+| -------------------- | ---------------------- |
+| Top Module           | `picorv32_main`        |
+| Total Standard Cells | 6,459                  |
+| Cell Area            | 69,708.105 µm²         |
+| Wire Area            | 0 (from library model) |
+| Total Area           | 69,708.105 µm²         |
+
+ℹ️ Area reported at RTL synthesis level (pre-placement).
+
+# 3️⃣ Power Report
+
+Source: reports/power.rpt
+
+| Component | Leakage (W) | Internal (W) | Switching (W) | Total (W) | Contribution |
+| --------- | ----------- | ------------ | ------------- | --------- | ------------ |
+| Registers | 4.57e-06    | 7.11e-03     | 4.05e-04      | 7.52e-03  | 83.6%        |
+| Logic     | 4.84e-06    | 7.38e-04     | 7.35e-04      | 1.48e-03  | 16.4%        |
+| Others    | \~0         | \~0          | \~0           | \~0       | 0%           |
+
+Total Power: 8.998e-03 W ≈ 8.99 mW
+
+Leakage: ~0.01 mW (0.1%)
+
+Internal: ~7.85 mW (87.2%)
+
+Switching: ~1.14 mW (12.7%)
+
+# 4️⃣ QoR Report (Quality of Results)
+
+Source: reports/report_qor.rpt
+
+| Metric         | Value        |
+| -------------- | ------------ |
+| Target Clock   | 10 ns        |
+| Achieved Slack | 0.00 ns      |
+| Cell Count     | 6,459        |
+| Area           | 69,708.1 µm² |
+| Power          | 8.99 mW      |
+
+✅ Design meets PPA (Performance, Power, Area) targets.
+
+# 📌 Summary Table
+
+| Metric           | Result      |
+| ---------------- | ----------- |
+| Frequency Target | 100 MHz     |
+| WNS / TNS        | 0.00 / 0.00 |
+| Standard Cells   | 6,459       |
+| Total Area       | 69,708 µm²  |
+| Total Power      | 8.99 mW     |
+
+🔗 Full Reports
+
+timing.rpt
+area.rpt
+power.rpt
+report_qor.rpt
+
