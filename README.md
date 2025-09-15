@@ -167,7 +167,7 @@ Final GDSII → `picorv32.gds`
 | Total Power      | 8.99 mW     |
 
 📂 **Full Reports:**  
-- [timing.rpt](reports/timing.rpt)  
+- [timing.rpt](https://github.com/SRB-TYAGI/RISC-V-PROCESSOR/blob/main/1.Genus/2.Reports/timing.rpt)  
 - [area.rpt](reports/area.rpt)  
 - [power.rpt](reports/power.rpt)  
 - [report_qor.rpt](reports/report_qor.rpt)  
@@ -181,5 +181,3 @@ Final GDSII → `picorv32.gds`
 - [Cadence Innovus](https://www.cadence.com/en_US/home/tools/digital-design-and-signoff/implementation/innovus-implementation-system.html)  
 - [RISC-V Foundation](https://riscv.org/)  
 
----
-✨ *If you find this project useful, don’t forget to ⭐ the repo!*
